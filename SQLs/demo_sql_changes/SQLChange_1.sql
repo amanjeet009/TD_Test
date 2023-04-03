@@ -5,7 +5,7 @@
 --rollback DROP TABLE TABLE_DEMO_SQL; 
 --comment: Initial creation of table TABLE_DEMO_SQL
 --validCheckSum: ANY
-create column table TABLE_DEMO_SQL(ID BIGINT PRIMARY KEY, VALUE VARCHAR(100));
+create column table TABLE_DEMO_SQL_TD(ID BIGINT PRIMARY KEY, VALUE VARCHAR(100));
 
 --liquibase formatted sql
 --changeset JBLAGOEV:DEMO_SQL_2 failOnError:true
@@ -14,5 +14,5 @@ create column table TABLE_DEMO_SQL(ID BIGINT PRIMARY KEY, VALUE VARCHAR(100));
 --rollback DROP SEQUENCE SEQ_DEMO_SQL; 
 --comment: Initial creation of a sequence SEQ_DEMO_SQL
 --validCheckSum: ANY
-create sequence SEQ_DEMO_SQL start with 1;
+create sequence SEQ_DEMO_SQL_TD start with 1;
 
