@@ -1,7 +1,7 @@
 --liquibase formatted sql
---changeset JBLAGOEV:DEMO_SQL_4 failOnError:true endDelimiter:/
---rollback DROP PROCEDURE PROC_DEMO_SQL; 
---comment: update on procedure PROC_DEMO_SQL
+--changeset TD_TEST123:DEMO_SQL_4 failOnError:true endDelimiter:/
+--rollback DROP PROCEDURE PROC_DEMO_SQL_TD; 
+--comment: update on procedure PROC_DEMO_SQL_TD
 --validCheckSum: ANY
 CREATE OR REPLACE PROCEDURE PROC_DEMO_SQL_TD
 (
