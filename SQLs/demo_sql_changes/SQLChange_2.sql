@@ -3,7 +3,7 @@
 --rollback DROP PROCEDURE PROC_DEMO_SQL; 
 --comment: update on procedure PROC_DEMO_SQL
 --validCheckSum: ANY
-CREATE OR REPLACE PROCEDURE PROC_DEMO_SQL
+CREATE OR REPLACE PROCEDURE PROC_DEMO_SQL_TD
 (
     IN X INT,
     OUT Y INT	
@@ -14,7 +14,7 @@ AS
 BEGIN
   declare z int;
   
-  select count(*) into z from TABLE_DEMO_SQL;
+  select count(*) into z from TABLE_DEMO_SQL_TD;
   
   Y = :X + :Z + 1; 
 END;
