@@ -1,30 +1,39 @@
-var axios = require('axios');
-var FormData = require('form-data');
-var fs = require('fs');
-var data = new FormData();
-data.append('changeLogZip', fs.createReadStream('liquibase.zip'));
+# This is a basic workflow to help you get started with Actions
 
-tenant = process.env.TENANT
-username = process.env.USERNAME
-pwd = process.env.PASSWORD
+name: CI
 
-var config = {
-  method: 'post',
-  url: 'https://1678.callidusondemand.com/TrueComp-SaaS/services/rest/touchlessdeployment/update?changeMasterFile=master.xml',
-  auth: {
-  username: c5337551,
-  password: Callidus123,
-  },
-  headers: { 
-    ...data.getHeaders()
-  },
-  data : data
-};
+# Controls when the workflow will run 
+on:
+  # Triggers the workflow on push events but only for the "main" branch
+  push:
+    branches: [ "main" ]
 
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    environment: "0531"
+    # The type of runner that the job will run on the
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Run Touchless Deployment
+      
+      # Runs a single command using the runners shell
+        run: cd bin && chmod 777 * &&./TDClient.sh -o update -m master.xml -d "./../SQLs/" -pl yes
+        env:
+          TD_BASEURL: ${{secrets.TD_BASEURL }}
+          TD_LOGDIRECTORY: ${{ runner.temp }}/Touchless-Logs
+          TD_PASSWORD: ${{secrets.TD_PASSWORD }}
+          TD_USERNAME: ${{secrets.TD_USERNAME }}
+      - name: Upload Touchless Deployment Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: logs
+          path: ${{ runner.temp }}/Touchless-Logs/
