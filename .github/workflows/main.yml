@@ -28,10 +28,10 @@ jobs:
       # Runs a single command using the runners shell
         run: cd bin && chmod 777 * &&./TDClient.sh -o update -m master.xml -d "./../SQLs/" -pl yes
         env:
-          TD_BASEURL: https://1678.callidusondemand.com/TrueComp-SaaS/services/rest/touchlessdeployment/
+          TD_BASEURL: ${{secrets.TD_BASEURL }}
 #           TD_LOGDIRECTORY: ${{ runner.temp }}/Touchless-Logs
-          TD_PASSWORD: Sap@12345
-          TD_USERNAME: C5337551
+          TD_PASSWORD: ${{secrets.TD_PASSWORD }}
+          TD_USERNAME: ${{secrets.TD_USERNAME }}
       - name: Upload Touchless Deployment Logs
         uses: actions/upload-artifact@v3
         with:
