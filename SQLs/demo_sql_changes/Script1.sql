@@ -1,9 +1,9 @@
 --liquibase formatted sql
---changeset TEST_TOUCH:9999
+--changeset TEST_TOUCH:9998
 --preconditions onFail:CONTINUE
---comment: Initial creation of table TEST_TOUCH_TD
+--comment: Initial creation of table TEST_TOUCH_TD23
 --validCheckSum: ANY
-CREATE TABLE TEST_TOUCHL_TD(
+CREATE TABLE TEST_TOUCHL_TD23(
 	"AUDITLOGSEQ" VARCHAR(255),
 	"OBJECTSEQ" VARCHAR(255),
 	"EVENTDATE" VARCHAR(255),
@@ -15,6 +15,6 @@ CREATE TABLE TEST_TOUCHL_TD(
 	"MODELSEQ" VARCHAR(255)
 );
  
---rollback drop table TEST_TOUCH_TD;
+--rollback drop table TEST_TOUCH_TD23;
 
 
