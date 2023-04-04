@@ -1,0 +1,20 @@
+--liquibase formatted sql
+--changeset TEST_TOUCH:9999
+--preconditions onFail:CONTINUE
+--comment: Initial creation of table TEST_TOUCH_TD
+--validCheckSum: ANY
+CREATE TABLE TEST_TOUCHL_TD(
+	"AUDITLOGSEQ" VARCHAR(255),
+	"OBJECTSEQ" VARCHAR(255),
+	"EVENTDATE" VARCHAR(255),
+	"EVENTTYPE" VARCHAR(255),
+	"USERID" VARCHAR(255),
+	"OBJECTNAME" VARCHAR(255),
+	"EVENTDESCRIPTION" VARCHAR(255),
+	"OBJECTTYPE" VARCHAR(255),
+	"MODELSEQ" VARCHAR(255)
+);
+ 
+--rollback drop table TEST_TOUCH_TD;
+
+
