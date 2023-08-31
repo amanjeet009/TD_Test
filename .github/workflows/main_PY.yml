@@ -1,0 +1,21 @@
+import requests
+import os
+import pandas as pd
+token = "Basic QzUzMDgxMTU6U2hlZW5hOTU="
+tenant = "0642"
+
+
+url = "https://0642.callidusondemand.com/TrueComp-SaaS/services/rest/touchlessdeployment/status"
+print(url)
+
+payload={}
+files=[
+  ('changeLogZip',('liquibase.zip',open('liquibase.zip','rb'),'application/zip'))
+]
+headers = {
+  'Authorization' : token
+}
+print(headers)
+response = requests.request("GET", url, headers=headers, data=payload, files=files)
+
+print(response.text)
