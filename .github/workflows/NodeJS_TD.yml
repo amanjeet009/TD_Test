@@ -4,9 +4,9 @@ var fs = require('fs');
 var data = new FormData();
 data.append('changeLogZip', fs.createReadStream('liquibase.zip'));
 
-tenant = process.env.TENANT
-username = process.env.USERNAME
-pwd = process.env.PASSWORD
+tenant = "1678"
+username = "C5337551"
+pwd = "Sap@12345"
 
 var config = {
   method: 'post',
